@@ -4,7 +4,273 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SynClip</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #00ff00;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .services, .projects, .videos, .hire, footer {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .services h2, .projects h2, .videos h2, .hire h2 {
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .services-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .service-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .service-card h3 {
+            margin: 10px 0 0;
+            font-size: 18px;
+        }
+
+        .projects-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            width: 150px;
+        }
+
+        .stat .icon {
+            font-size: 24px;
+        }
+
+        .website-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .website-card {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 12px;
+            width: 220px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .website-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+            background-color: #333;
+        }
+
+        .website-card img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .website-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .website-card h3 {
+            margin: 12px 0 8px;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .website-card a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .website-card a:hover {
+            color: #00cc00;
+        }
+
+        .videos-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .video-card {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 12px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 255, 0, 0.2);
+            background-color: #333;
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 150px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        .video-card h3 {
+            margin: 12px 0 8px;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        .hire-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .button img {
+            width: 100px;
+            height: auto;
+            display: block;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            border-top: 1px solid #333;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .social-links a:hover {
+            color: #00ff00;
+        }
+
+        .owners {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        .intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+
+        .letter {
+            font-size: 72px;
+            font-weight: bold;
+            color: #00ff00;
+            margin: 0 50px;
+            transition: all 1.5s ease-out;
+        }
+
+        .letter.glow {
+            text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
+            transform: scale(1.2);
+        }
+
+        body.loaded .intro {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        body.loaded .letter {
+            margin: 0 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="intro">
@@ -61,207 +327,80 @@
                 <p>28+ Websites</p>
             </div>
         </div>
+        <div class="website-grid">
+            <div class="website-card">
+                <img src="draftingautocad.jpg" alt="Drafting AutoCAD">
+                <h3>Drafting AutoCAD</h3>
+                <a href="https://www.draftingautocad.com/" target="_blank">Visit Site</a>
+            </div>
+            <div class="website-card">
+                <img src="broncolavado.jpg" alt="Bronco Lavado">
+                <h3>Bronco Lavado</h3>
+                <a href="https://broncolavado.com/" target="_blank">Visit Site</a>
+            </div>
+            <div class="website-card">
+                <img src="uschemlabs.jpg" alt="US Chem Labs">
+                <h3>US Chem Labs</h3>
+                <a href="https://www.uschemlabs.com/" target="_blank">Visit Site</a>
+            </div>
+            <div class="website-card">
+                <img src="wemeasure.jpg" alt="We Measure">
+                <h3>We Measure</h3>
+                <a href="https://wemeasure.org/" target="_blank">Visit Site</a>
+            </div>
+        </div>
     </section>
 
-    <section class="placeholders">
-        <div class="placeholder-box"></div>
-        <div class="placeholder-box"></div>
+    <section class="videos">
+        <h2>Featured Videos</h2>
+        <div class="videos-grid">
+            <div class="video-card">
+                <iframe src="https://drive.google.com/file/d/1jgQg6meAB1M0RmZUCLpnxDBPZypOWuQi/preview" allow="autoplay"></iframe>
+                <h3>Video Project 1</h3>
+            </div>
+            <div class="video-card">
+                <iframe src="https://drive.google.com/file/d/1KiTLTeN5lLir_RL8kjZx_Z5dmDTvfH6W/preview" allow="autoplay"></iframe>
+                <h3>Video Project 2</h3>
+            </div>
+        </div>
     </section>
 
     <section class="hire" id="hire">
         <h2>Hire Us</h2>
         <div class="hire-buttons">
-            <a href="https://www.fiverr.com/jawadadnanawan" class="button fiverr">Fiverr</a>
-            <a href="mailto:jawad@easyhoja.com" class="button email">Email</a>
-            <a href="https://www.upwork.com" class="button upwork">Upwork</a>
+            <a href="https://www.fiverr.com/jawadadnanawan" class="button">
+                <img src="https://cdn.example.com/synclip/fiverr-logo.png" alt="Fiverr">
+            </a>
+            <a href="mailto:jawad@easyhoja.com" class="button">
+                <img src="https://cdn.example.com/synclip/email-logo.png" alt="Email">
+            </a>
+            <a href="https://www.upwork.com" class="button">
+                <img src="https://cdn.example.com/synclip/upwork-logo.png" alt="Upwork">
+            </a>
         </div>
     </section>
 
     <footer>
         <p>© SynClip 2024</p>
         <div class="social-links">
-            <a href="#">LinkedIn</a>
-            <a href="#">Instagram</a>
-            <a href="#">Email</a>
-            <a href="#">Facebook</a>
+            <a href="https://www.instagram.com/jawad.adnanawan" target="_blank">Instagram</a>
+            <a href="mailto:jawadadnanawan@gmail.com">Email</a>
         </div>
+        <p class="owners">Owners: Jawad Adnan Awan & Zeeshan Isfaq</p>
     </footer>
 
-    <script src="script.js"></script>
-    <style>body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-color: #1a1a1a; /* Dark background like in the design */
-        color: #ffffff; /* White text for contrast */
-    }
-    
-    header {
-        background-color: #1a1a1a;
-        padding: 20px;
-        text-align: center;
-        border-bottom: 1px solid #333;
-    }
-    
-    header h1 {
-        margin: 0;
-        font-size: 24px;
-        color: #00ff00; /* Bright green for "SynClip" logo */
-    }
-    
-    nav {
-        margin-top: 10px;
-    }
-    
-    nav a {
-        color: #ffffff;
-        text-decoration: none;
-        margin: 0 15px;
-        font-size: 16px;
-    }
-    
-    .services, .projects, .placeholders, .hire, footer {
-        padding: 40px 20px;
-        text-align: center;
-    }
-    
-    .services h2, .projects h2, .hire h2 {
-        margin-bottom: 30px;
-        font-size: 28px;
-    }
-    
-    .services-grid {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-    
-    .service-card {
-        background-color: #2a2a2a;
-        padding: 20px;
-        border-radius: 10px;
-        width: 200px;
-        text-align: center;
-    }
-    
-    .service-card img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-    
-    .service-card h3 {
-        margin: 10px 0 0;
-        font-size: 18px;
-    }
-    
-    .projects-stats {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
-    
-    .stat {
-        background-color: #2a2a2a;
-        padding: 20px;
-        border-radius: 10px;
-        width: 150px;
-    }
-    
-    .stat .icon {
-        font-size: 24px;
-    }
-    
-    .placeholder-box {
-        width: 300px;
-        height: 150px;
-        background-color: #666;
-        margin: 20px auto;
-        border-radius: 10px;
-    }
-    
-    .hire-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-    }
-    
-    .button {
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 16px;
-        color: #ffffff;
-    }
-    
-    .button.fiverr {
-        background-color: #1dbf73; /* Fiverr green */
-    }
-    
-    .button.email {
-        background-color: #ffd700; /* Gold for email */
-        color: #000000;
-    }
-    
-    .button.upwork {
-        background-color: #6fda44; /* Upwork green */
-    }
-    
-    footer {
-        background-color: #1a1a1a;
-        border-top: 1px solid #333;
-        text-align: center;
-    }
-    
-    .social-links {
-        margin-top: 10px;
-    }
-    
-    .social-links a {
-        color: #ffffff;
-        text-decoration: none;
-        margin: 0 10px;
-    }
-    .intro {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #1a1a1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure it’s above everything else */
-    opacity: 1;
-    transition: opacity 1s ease-out;
-}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const letters = document.querySelectorAll('.letter');
+            
+            setTimeout(() => {
+                letters.forEach(letter => {
+                    letter.classList.add('glow');
+                });
+            }, 500);
 
-.letter {
-    font-size: 72px;
-    font-weight: bold;
-    color: #00ff00; /* Bright green like the SynClip logo */
-    margin: 0 50px; /* Start with letters spread out */
-    transition: all 1.5s ease-out;
-}
-
-.letter.glow {
-    text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00; /* Glowing effect */
-    transform: scale(1.2); /* Slightly larger when glowing */
-}
-
-body.loaded .intro {
-    opacity: 0;
-    pointer-events: none; /* Prevent interaction with intro after animation */
-}
-
-body.loaded .letter {
-    margin: 0 5px;
- } /* Letters close together after animation */
-    </style>
-</body>
-</html>
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 2000);
+        });
+    </script>
